@@ -19,10 +19,19 @@
         console.log("Perdimos conexión servidor");
       });
 
+      socket.on("active-bands", function (payload) {
+        console.clear();
+        console.table(payload);
+      });
+
       socket.emit("mensaje", { nombre: "Andres" });
 
       socket.on("mensaje", function (payload) {
         console.log("Escuchando:", payload);
+      });
+
+      socket.on("nuevo-mensaje", function (payload) {
+        console.log("Mensaje", payload);
       });
     </script>
   </body>
